@@ -108,9 +108,15 @@ public class ProductController {
     @ApiOperation(value = "retourne la marge de produit : la difference entre prix de vente et prix d'achat")
     @GetMapping(value="/AdminProduits")
     public List<Product> calculerMargeProduit(){
-
         List<Product> produits =  productDao.calculerDifferenceDesPrix();
         return produits ;
     }
 
+    // Afficher liste des produits par ordre alphabétique de nom
+    @ApiOperation(value="retourner la liste de tous les produits triés par nom croissant")
+    @GetMapping(value="/ProduitsParNom")
+    public List<Product> trierProduitsParOrdreAlphabetique(){
+        List<Product> produits = productDao.findAllByOrderByNomAsc();
+        return produits;
+    }
 }
