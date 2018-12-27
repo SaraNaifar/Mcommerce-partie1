@@ -74,7 +74,7 @@ public class ProductController {
 
             if(product.getPrix() == 0) {
 
-            throw new ProduitGratuitException("le prix de vente de produit doit etre > 0 !!!!!!!!!!!!!");
+            throw new ProduitGratuitException("le prix de vente de produit doit etre > 0 !");
 
         }
         else

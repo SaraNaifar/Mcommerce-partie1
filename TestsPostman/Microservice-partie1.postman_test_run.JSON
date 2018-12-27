@@ -1,0 +1,162 @@
+{
+	"id": "71c01efb-1daa-4fe9-afd1-e3323f970161",
+	"name": "Microservice-partie1",
+	"allTests": [],
+	"timestamp": "2018-12-27T15:29:55.499Z",
+	"collection_id": "ee73e9af-38a7-444d-9e23-ec52441faad6",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "ee73e9af-38a7-444d-9e23-ec52441faad6",
+		"name": "Microservice-partie1",
+		"description": "",
+		"auth": null,
+		"events": null,
+		"variables": [],
+		"order": [
+			"76ce65d1-6f23-4e86-a255-08cca47f217e",
+			"bae48d82-d23b-4a65-892a-53d6e8e8ed4a",
+			"a975bf20-f605-4c9b-afa1-34d877405268"
+		],
+		"folders_order": [],
+		"owner": "3156260",
+		"permissions": {},
+		"favorite": false,
+		"shared": false,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [],
+	"results": [
+		{
+			"name": "http://localhost:9090/AdminProduits",
+			"id": "76ce65d1-6f23-4e86-a255-08cca47f217e",
+			"url": "http://localhost:9090/AdminProduits",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"18"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "18",
+			"totalRequestTime": "18",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://localhost:9090/ProduitsParNom",
+			"id": "bae48d82-d23b-4a65-892a-53d6e8e8ed4a",
+			"url": "http://localhost:9090/ProduitsParNom",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"15"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "15",
+			"totalRequestTime": "15",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://localhost:9090/Produits",
+			"id": "a975bf20-f605-4c9b-afa1-34d877405268",
+			"url": "http://localhost:9090/Produits",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 422,
+				"name": "Unprocessable Entity (WebDAV) (RFC 4918)",
+				"detail": {
+					"name": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"detail": "The request was well-formed but was unable to be followed due to semantic errors."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"12"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "12",
+			"totalRequestTime": "12",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 0,
+	"totalFail": 0,
+	"totalTime": 45,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "http://localhost:9090/AdminProduits",
+			"id": "76ce65d1-6f23-4e86-a255-08cca47f217e",
+			"url": "http://localhost:9090/AdminProduits",
+			"time": "2018-12-27T15:29:55.499Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://localhost:9090/ProduitsParNom",
+			"id": "bae48d82-d23b-4a65-892a-53d6e8e8ed4a",
+			"url": "http://localhost:9090/ProduitsParNom",
+			"time": "2018-12-27T15:29:55.499Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://localhost:9090/Produits",
+			"id": "a975bf20-f605-4c9b-afa1-34d877405268",
+			"url": "http://localhost:9090/Produits",
+			"time": "2018-12-27T15:29:55.499Z",
+			"responseCode": {
+				"code": 422,
+				"name": "Unprocessable Entity (WebDAV) (RFC 4918)",
+				"detail": {
+					"name": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"detail": "The request was well-formed but was unable to be followed due to semantic errors."
+				}
+			},
+			"testPassFailCounts": {}
+		}
+	],
+	"synced": false
+}
