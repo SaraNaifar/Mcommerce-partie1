@@ -3,6 +3,7 @@ package com.ecommerce.microcommerce.web.controller;
 import com.ecommerce.microcommerce.dao.ProductDao;
 import com.ecommerce.microcommerce.model.Product;
 import com.ecommerce.microcommerce.web.exceptions.ProduitIntrouvableException;
+import com.ecommerce.microcommerce.web.exceptions.ProduitGratuitException;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
@@ -13,9 +14,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -36,8 +37,7 @@ public class ProductController {
 
     public MappingJacksonValue listeProduits() {
 
-        Iterable<Product> produits = productDao.findAll();
-
+        Collection<Product> produits = productDao.findAll();
 
 
         FilterProvider listDeNosFiltres = new SimpleFilterProvider().addFilter("monFiltreDynamique", monFiltre);
@@ -69,11 +69,18 @@ public class ProductController {
     @PostMapping(value = "/Produits")
 
     public ResponseEntity<Void> ajouterProduit(@Valid @RequestBody Product product) {
+        Product productAdded;
 
-        Product productAdded =  productDao.save(product);
 
-        if (productAdded == null)
-            return ResponseEntity.noContent().build();
+            if(product.getPrix() == 0) {
+
+            throw new ProduitGratuitException("le prix de vente de produit doit etre > 0 !!!!!!!!!!!!!");
+
+        }
+        else
+            productAdded   =  productDao.save(product);
+      //  if (product == null)
+            //return ResponseEntity.noContent().build();
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -86,13 +93,11 @@ public class ProductController {
 
     @DeleteMapping (value = "/Produits/{id}")
     public void supprimerProduit(@PathVariable int id) {
-
         productDao.delete(id);
     }
 
     @PutMapping (value = "/Produits")
     public void updateProduit(@RequestBody Product product) {
-
         productDao.save(product);
     }
 
@@ -107,7 +112,7 @@ public class ProductController {
     //Calculer la marge de produit
     @ApiOperation(value = "retourne la marge de produit : la difference entre prix de vente et prix d'achat")
     @GetMapping(value="/AdminProduits")
-    public List<Product> calculerMargeProduit(){
+    public List<Product> calculerDifferenceDesPrix(){
         List<Product> produits =  productDao.calculerDifferenceDesPrix();
         return produits ;
     }
