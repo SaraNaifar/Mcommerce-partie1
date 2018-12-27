@@ -28,6 +28,8 @@ public class ProductController {
     private ProductDao productDao;
 
 
+    SimpleBeanPropertyFilter monFiltre = SimpleBeanPropertyFilter.serializeAllExcept("prixAchat");
+
     //Récupérer la liste des produits
 
     @RequestMapping(value = "/Produits", method = RequestMethod.GET)
@@ -36,7 +38,7 @@ public class ProductController {
 
         Iterable<Product> produits = productDao.findAll();
 
-        SimpleBeanPropertyFilter monFiltre = SimpleBeanPropertyFilter.serializeAllExcept("prixAchat");
+
 
         FilterProvider listDeNosFiltres = new SimpleFilterProvider().addFilter("monFiltreDynamique", monFiltre);
 
@@ -60,7 +62,6 @@ public class ProductController {
 
         return produit;
     }
-
 
 
 
@@ -103,6 +104,13 @@ public class ProductController {
         return productDao.chercherUnProduitCher(400);
     }
 
+    //Calculer la marge de produit
+    @ApiOperation(value = "retourne la marge de produit : la difference entre prix de vente et prix d'achat")
+    @GetMapping(value="/AdminProduits")
+    public List<Product> calculerMargeProduit(){
 
+        List<Product> produits =  productDao.calculerDifferenceDesPrix();
+        return produits ;
+    }
 
 }
